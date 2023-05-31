@@ -64,31 +64,59 @@ namespace MovieLibraryApplication
 
         private void Add_button_Click(object sender, EventArgs e)
         {
-            SqlCommand sqlCommand = new SqlCommand("INSERT INTO MoviesTable (user_ID,title, director, cast, genre, release_year, rating, description) VALUES("+ Userid + ",@title, @director, @cast, @genre, @release_year, @rating, @description);", connectionsql);
-            sqlCommand.Parameters.AddWithValue("@title", Title_textBox.Text);
-            sqlCommand.Parameters.AddWithValue("@director", Director_textBox.Text);
-            sqlCommand.Parameters.AddWithValue("@cast", Cast_textBox.Text);
-            sqlCommand.Parameters.AddWithValue("@genre", Genre_textBox.Text);
-            sqlCommand.Parameters.AddWithValue("@release_year", Release_Year_textBox.Text);
-            sqlCommand.Parameters.AddWithValue("@rating", Rating_textBox.Text);
-            sqlCommand.Parameters.AddWithValue("@description", Description_textBox.Text );
-            sqlCommand.ExecuteNonQuery();
-            GetTable();
+            if (Title_textBox.Text ==""|| Director_textBox.Text == "" || Cast_textBox.Text == "" || Genre_textBox.Text == "" ||Release_Year_textBox.Text == "" ||Rating_textBox.Text == "")
+            {
+                MessageBox.Show("Fill in the required fields.");
+                twronglabel.Visible = true;
+                dwronglabel.Visible = true;
+                cwronglabel.Visible = true;
+                gwronglabel.Visible = true;
+                dwronglabel.Visible = true;
+                rwronglabel.Visible = true;
+                rrwronglabel.Visible = true;
+            }
+            else
+            {
+                SqlCommand sqlCommand = new SqlCommand("INSERT INTO MoviesTable (user_ID,title, director, cast, genre, release_year, rating, description) VALUES(" + Userid + ",@title, @director, @cast, @genre, @release_year, @rating, @description);", connectionsql);
+                sqlCommand.Parameters.AddWithValue("@title", Title_textBox.Text);
+                sqlCommand.Parameters.AddWithValue("@director", Director_textBox.Text);
+                sqlCommand.Parameters.AddWithValue("@cast", Cast_textBox.Text);
+                sqlCommand.Parameters.AddWithValue("@genre", Genre_textBox.Text);
+                sqlCommand.Parameters.AddWithValue("@release_year", Release_Year_textBox.Text);
+                sqlCommand.Parameters.AddWithValue("@rating", Rating_textBox.Text);
+                sqlCommand.Parameters.AddWithValue("@description", Description_textBox.Text);
+                sqlCommand.ExecuteNonQuery();
+                GetTable();
+            }
         }
 
         private void Update_button_Click(object sender, EventArgs e)
         {
-            SqlCommand sqlCommand = new SqlCommand("UPDATE MoviesTable SET user_ID = "+ Userid + ", title = @title, director = @director, cast = @cast, genre = @genre, release_year = @release_year, rating = @rating, description = @description WHERE movie_ID = @ID;", connectionsql);
-            sqlCommand.Parameters.AddWithValue("@title", Title_textBox.Text);
-            sqlCommand.Parameters.AddWithValue("@director", Director_textBox.Text);
-            sqlCommand.Parameters.AddWithValue("@cast", Cast_textBox.Text);
-            sqlCommand.Parameters.AddWithValue("@genre", Genre_textBox.Text);
-            sqlCommand.Parameters.AddWithValue("@release_year", Convert.ToInt32(Release_Year_textBox.Text));
-            sqlCommand.Parameters.AddWithValue("@rating", Convert.ToInt32(Rating_textBox.Text));
-            sqlCommand.Parameters.AddWithValue("@description", Description_textBox.Text);
-            sqlCommand.Parameters.AddWithValue("@ID", Convert.ToInt32(MovieID_Label.Text));
-            sqlCommand.ExecuteNonQuery();
-            GetTable();
+            if (Title_textBox.Text == "" || Director_textBox.Text == "" || Cast_textBox.Text == "" || Genre_textBox.Text == "" || Release_Year_textBox.Text == "" || Rating_textBox.Text == "")
+            {
+                MessageBox.Show("Fill in the required fields.");
+                twronglabel.Visible = true;
+                dwronglabel.Visible = true;
+                cwronglabel.Visible = true;
+                gwronglabel.Visible = true;
+                dwronglabel.Visible = true;
+                rwronglabel.Visible = true;
+                rrwronglabel.Visible = true;
+            }
+            else
+            {
+                SqlCommand sqlCommand = new SqlCommand("UPDATE MoviesTable SET user_ID = " + Userid + ", title = @title, director = @director, cast = @cast, genre = @genre, release_year = @release_year, rating = @rating, description = @description WHERE movie_ID = @ID;", connectionsql);
+                sqlCommand.Parameters.AddWithValue("@title", Title_textBox.Text);
+                sqlCommand.Parameters.AddWithValue("@director", Director_textBox.Text);
+                sqlCommand.Parameters.AddWithValue("@cast", Cast_textBox.Text);
+                sqlCommand.Parameters.AddWithValue("@genre", Genre_textBox.Text);
+                sqlCommand.Parameters.AddWithValue("@release_year", Convert.ToInt32(Release_Year_textBox.Text));
+                sqlCommand.Parameters.AddWithValue("@rating", Convert.ToInt32(Rating_textBox.Text));
+                sqlCommand.Parameters.AddWithValue("@description", Description_textBox.Text);
+                sqlCommand.Parameters.AddWithValue("@ID", Convert.ToInt32(MovieID_Label.Text));
+                sqlCommand.ExecuteNonQuery();
+                GetTable();
+            }
         }
         
 

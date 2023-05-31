@@ -48,6 +48,12 @@
             this.Delete_button = new System.Windows.Forms.Button();
             this.MovieID_Label = new System.Windows.Forms.Label();
             this.idlbl = new System.Windows.Forms.Label();
+            this.twronglabel = new System.Windows.Forms.Label();
+            this.dwronglabel = new System.Windows.Forms.Label();
+            this.cwronglabel = new System.Windows.Forms.Label();
+            this.gwronglabel = new System.Windows.Forms.Label();
+            this.rwronglabel = new System.Windows.Forms.Label();
+            this.rrwronglabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -227,11 +233,89 @@
             this.idlbl.Text = "UserID(Secret)";
             this.idlbl.Visible = false;
             // 
+            // twronglabel
+            // 
+            this.twronglabel.AutoSize = true;
+            this.twronglabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold);
+            this.twronglabel.ForeColor = System.Drawing.Color.Red;
+            this.twronglabel.Location = new System.Drawing.Point(294, 28);
+            this.twronglabel.Name = "twronglabel";
+            this.twronglabel.Size = new System.Drawing.Size(14, 17);
+            this.twronglabel.TabIndex = 6;
+            this.twronglabel.Text = "*";
+            this.twronglabel.Visible = false;
+            // 
+            // dwronglabel
+            // 
+            this.dwronglabel.AutoSize = true;
+            this.dwronglabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold);
+            this.dwronglabel.ForeColor = System.Drawing.Color.Red;
+            this.dwronglabel.Location = new System.Drawing.Point(294, 55);
+            this.dwronglabel.Name = "dwronglabel";
+            this.dwronglabel.Size = new System.Drawing.Size(14, 17);
+            this.dwronglabel.TabIndex = 6;
+            this.dwronglabel.Text = "*";
+            this.dwronglabel.Visible = false;
+            // 
+            // cwronglabel
+            // 
+            this.cwronglabel.AutoSize = true;
+            this.cwronglabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold);
+            this.cwronglabel.ForeColor = System.Drawing.Color.Red;
+            this.cwronglabel.Location = new System.Drawing.Point(294, 81);
+            this.cwronglabel.Name = "cwronglabel";
+            this.cwronglabel.Size = new System.Drawing.Size(14, 17);
+            this.cwronglabel.TabIndex = 6;
+            this.cwronglabel.Text = "*";
+            this.cwronglabel.Visible = false;
+            // 
+            // gwronglabel
+            // 
+            this.gwronglabel.AutoSize = true;
+            this.gwronglabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold);
+            this.gwronglabel.ForeColor = System.Drawing.Color.Red;
+            this.gwronglabel.Location = new System.Drawing.Point(294, 106);
+            this.gwronglabel.Name = "gwronglabel";
+            this.gwronglabel.Size = new System.Drawing.Size(14, 17);
+            this.gwronglabel.TabIndex = 6;
+            this.gwronglabel.Text = "*";
+            this.gwronglabel.Visible = false;
+            // 
+            // rwronglabel
+            // 
+            this.rwronglabel.AutoSize = true;
+            this.rwronglabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold);
+            this.rwronglabel.ForeColor = System.Drawing.Color.Red;
+            this.rwronglabel.Location = new System.Drawing.Point(294, 135);
+            this.rwronglabel.Name = "rwronglabel";
+            this.rwronglabel.Size = new System.Drawing.Size(14, 17);
+            this.rwronglabel.TabIndex = 6;
+            this.rwronglabel.Text = "*";
+            this.rwronglabel.Visible = false;
+            // 
+            // rrwronglabel
+            // 
+            this.rrwronglabel.AutoSize = true;
+            this.rrwronglabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Bold);
+            this.rrwronglabel.ForeColor = System.Drawing.Color.Red;
+            this.rrwronglabel.Location = new System.Drawing.Point(294, 161);
+            this.rrwronglabel.Name = "rrwronglabel";
+            this.rrwronglabel.Size = new System.Drawing.Size(14, 17);
+            this.rrwronglabel.TabIndex = 6;
+            this.rrwronglabel.Text = "*";
+            this.rrwronglabel.Visible = false;
+            // 
             // MovieLibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 678);
+            this.Controls.Add(this.rrwronglabel);
+            this.Controls.Add(this.rwronglabel);
+            this.Controls.Add(this.gwronglabel);
+            this.Controls.Add(this.cwronglabel);
+            this.Controls.Add(this.dwronglabel);
+            this.Controls.Add(this.twronglabel);
             this.Controls.Add(this.idlbl);
             this.Controls.Add(this.Delete_button);
             this.Controls.Add(this.Update_button);
@@ -283,5 +367,11 @@
         private System.Windows.Forms.Button Delete_button;
         private System.Windows.Forms.Label MovieID_Label;
         private System.Windows.Forms.Label idlbl;
+        private System.Windows.Forms.Label twronglabel;
+        private System.Windows.Forms.Label dwronglabel;
+        private System.Windows.Forms.Label cwronglabel;
+        private System.Windows.Forms.Label gwronglabel;
+        private System.Windows.Forms.Label rwronglabel;
+        private System.Windows.Forms.Label rrwronglabel;
     }
 }
