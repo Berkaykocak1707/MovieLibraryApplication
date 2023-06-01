@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserChangePasswordForm));
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.ChangeButton = new System.Windows.Forms.Button();
             this.Password_textBox = new System.Windows.Forms.TextBox();
@@ -137,8 +138,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.UsernameLabel);
             this.Controls.Add(this.PasswordLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserChangePasswordForm";
-            this.Text = "UserChangePasswordForm";
+            this.Text = "Change Password";
             this.Load += new System.EventHandler(this.UserChangePasswordForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

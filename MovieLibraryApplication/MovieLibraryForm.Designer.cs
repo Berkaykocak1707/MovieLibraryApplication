@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieLibraryForm));
             this.Title_label = new System.Windows.Forms.Label();
             this.Director_label = new System.Windows.Forms.Label();
             this.Cast_label = new System.Windows.Forms.Label();
@@ -348,8 +349,9 @@
             this.Controls.Add(this.Cast_label);
             this.Controls.Add(this.MovieID_Label);
             this.Controls.Add(this.Title_label);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MovieLibraryForm";
-            this.Text = "MovieLibraryForm";
+            this.Text = "Movie Library";
             this.Load += new System.EventHandler(this.MovieLibraryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

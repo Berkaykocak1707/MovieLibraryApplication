@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPanelForm));
             this.pwronglabel = new System.Windows.Forms.Label();
             this.uwronglabel = new System.Windows.Forms.Label();
             this.Delete_User_button_Admin = new System.Windows.Forms.Button();
@@ -503,8 +504,9 @@
             this.Controls.Add(this.Username_textBox_Admin);
             this.Controls.Add(this.Password_label_Admin);
             this.Controls.Add(this.Username_label_Admin);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminPanelForm";
-            this.Text = "AdminPanelForm";
+            this.Text = "Admin Panel";
             this.Load += new System.EventHandler(this.AdminPanelForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UserdataGridView_Admin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MoviedataGridView_Admin)).EndInit();
