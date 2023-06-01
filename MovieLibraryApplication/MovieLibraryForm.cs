@@ -19,11 +19,8 @@ namespace MovieLibraryApplication
         }
         SqlConnection connectionsql = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=MovieLibraryApplication;Integrated Security=True");
         private void MovieLibraryForm_Load(object sender, EventArgs e)
-        {
-            connectionsql.Open();
+        { 
             GetTable();
-
-
         }
         private int UserID;
         public int Userid
@@ -39,12 +36,14 @@ namespace MovieLibraryApplication
         }
         public void GetTable()
         {
+            connectionsql.Open();
             SqlDataAdapter MovieCommand = new SqlDataAdapter("SELECT * FROM MoviesTable WHERE User_ID = "+ Userid, connectionsql);
             
             DataTable MovieTable = new DataTable();
             MovieCommand.Fill(MovieTable);
             idlbl.Text = Userid.ToString();
             dataGridView1.DataSource = MovieTable;
+            connectionsql.Close();
         }
         public void datagridupdate()
         {
@@ -75,8 +74,17 @@ namespace MovieLibraryApplication
                 rwronglabel.Visible = true;
                 rrwronglabel.Visible = true;
             }
+            else if (Convert.ToInt32(Rating_textBox.Text) > 5 || Convert.ToInt32(Rating_textBox.Text) < 0)
+            {
+                MessageBox.Show("Rating must be between 0-5.");
+            }
+            else if (Convert.ToInt32(Release_Year_textBox.Text) < 1896)
+            {
+                MessageBox.Show("The first movie in history was in 1896.");
+            }
             else
             {
+                connectionsql.Open();
                 SqlCommand sqlCommand = new SqlCommand("INSERT INTO MoviesTable (user_ID,title, director, cast, genre, release_year, rating, description) VALUES(" + Userid + ",@title, @director, @cast, @genre, @release_year, @rating, @description);", connectionsql);
                 sqlCommand.Parameters.AddWithValue("@title", Title_textBox.Text);
                 sqlCommand.Parameters.AddWithValue("@director", Director_textBox.Text);
@@ -86,6 +94,7 @@ namespace MovieLibraryApplication
                 sqlCommand.Parameters.AddWithValue("@rating", Rating_textBox.Text);
                 sqlCommand.Parameters.AddWithValue("@description", Description_textBox.Text);
                 sqlCommand.ExecuteNonQuery();
+                connectionsql.Close();
                 GetTable();
             }
         }
@@ -103,8 +112,17 @@ namespace MovieLibraryApplication
                 rwronglabel.Visible = true;
                 rrwronglabel.Visible = true;
             }
+            else if (Convert.ToInt32(Rating_textBox.Text) > 5 || Convert.ToInt32(Rating_textBox.Text) < 0)
+            {
+                MessageBox.Show("Rating must be between 0-5.");
+            }
+            else if(Convert.ToInt32(Release_Year_textBox.Text) < 1896)
+            {
+                MessageBox.Show("The first movie in history was in 1896.");
+            }
             else
             {
+                connectionsql.Open();
                 SqlCommand sqlCommand = new SqlCommand("UPDATE MoviesTable SET user_ID = " + Userid + ", title = @title, director = @director, cast = @cast, genre = @genre, release_year = @release_year, rating = @rating, description = @description WHERE movie_ID = @ID;", connectionsql);
                 sqlCommand.Parameters.AddWithValue("@title", Title_textBox.Text);
                 sqlCommand.Parameters.AddWithValue("@director", Director_textBox.Text);
@@ -115,6 +133,7 @@ namespace MovieLibraryApplication
                 sqlCommand.Parameters.AddWithValue("@description", Description_textBox.Text);
                 sqlCommand.Parameters.AddWithValue("@ID", Convert.ToInt32(MovieID_Label.Text));
                 sqlCommand.ExecuteNonQuery();
+                connectionsql.Close();
                 GetTable();
             }
         }
@@ -122,11 +141,18 @@ namespace MovieLibraryApplication
 
         private void Delete_button_Click(object sender, EventArgs e)
         {
+            connectionsql.Open();
             SqlCommand sqlCommand = new SqlCommand("DELETE FROM MoviesTable WHERE movie_ID = @ID;", connectionsql);
             sqlCommand.Parameters.AddWithValue("@ID",Convert.ToInt32(MovieID_Label.Text));
             sqlCommand.ExecuteNonQuery();
+            connectionsql.Close();
             GetTable();
         }
 
+        private void Change_Password_button_Click(object sender, EventArgs e)
+        {
+            UserChangePasswordForm form = new UserChangePasswordForm();
+            form.Show();
+        }
     }
 }

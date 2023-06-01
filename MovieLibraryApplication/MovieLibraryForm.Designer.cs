@@ -54,6 +54,7 @@
             this.gwronglabel = new System.Windows.Forms.Label();
             this.rwronglabel = new System.Windows.Forms.Label();
             this.rrwronglabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -305,6 +306,16 @@
             this.rrwronglabel.Text = "*";
             this.rrwronglabel.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(554, 622);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(108, 33);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Change Password";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Change_Password_button_Click);
+            // 
             // MovieLibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -317,6 +328,7 @@
             this.Controls.Add(this.dwronglabel);
             this.Controls.Add(this.twronglabel);
             this.Controls.Add(this.idlbl);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Delete_button);
             this.Controls.Add(this.Update_button);
             this.Controls.Add(this.Add_button);
@@ -373,5 +385,6 @@
         private System.Windows.Forms.Label gwronglabel;
         private System.Windows.Forms.Label rwronglabel;
         private System.Windows.Forms.Label rrwronglabel;
+        private System.Windows.Forms.Button button1;
     }
 }
