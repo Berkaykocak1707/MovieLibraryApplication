@@ -17,7 +17,7 @@ namespace MovieLibraryApplication
         {
             InitializeComponent();
         }
-        SqlConnection connectionsql = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=MovieLibraryApplication;Integrated Security=True");
+        SqlConnection connectionsql = SqlConnectionClass.GetSqlConnection();
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (Password_textBox.UseSystemPasswordChar)
